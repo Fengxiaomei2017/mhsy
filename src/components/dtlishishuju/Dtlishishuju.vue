@@ -139,7 +139,7 @@
   .liebiao .datetime small {
     display: block;
     margin-top: 1vh;
-    font-size: 1rem;
+    font-size: 1em;
   }
   .liebiao .liebiaooutbox {
     padding: 2vh 0;
@@ -160,7 +160,7 @@
    .liebiao .yuming li, .liebiao .liebiaoshuju li {
     height: 40px;
     padding-left: 15px;
-    font-size: 1.1rem;
+    font-size: 1.1em;
     line-height: 40px;
     border-bottom: 1px solid #CACACA;
   }
@@ -185,7 +185,7 @@
     width: 20vw;
     height: 5vh;
     margin: 0 1vw;
-    font-size: 1rem;
+    font-size: 1em;
     color: #fff;
     background-color: #E25162;
     border: 1px solid #E25162;

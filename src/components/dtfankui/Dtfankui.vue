@@ -59,7 +59,7 @@
   }
   .jiebangtishi {
     height: 10vh;
-    font-size: 1.3rem;
+    font-size: 1.3em;
     line-height: 10vh;
     text-align: center;
   }
@@ -73,7 +73,7 @@
     margin-bottom: 1vh;
   }
   .fankui form h3 {
-    font-size: 1rem;
+    font-size: 1em;
   }
   .fankui form .xuanzefankui {
     height: 5vh;
@@ -92,7 +92,7 @@
   .fankui form textarea {
     width: 92vw;
     margin-top: 2vh;
-    font-size: 1rem;
+    font-size: 1em;
     border: 1px solid #ACA5A5;
   }
   .fankui a {
@@ -100,7 +100,7 @@
     width: 50vw;
     height: 40px;
     margin: 0 auto;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     line-height: 40px;
     color: #fff;
     text-align: center;

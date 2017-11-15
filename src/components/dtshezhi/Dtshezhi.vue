@@ -55,7 +55,7 @@
   }
   .shezhi .jiechubangding {
     padding: 10px 0;
-    font-size: 1.1rem;
+    font-size: 1.1em;
     text-align: center;
   }
   .shezhi .jiechubangding a {
@@ -86,7 +86,7 @@
     z-index: 999;
     width: 70vw;
     height: 15vh;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     line-height: 7vh;
     text-align: center;
     background-color: #fff;
@@ -97,7 +97,7 @@
     width: 20vw;
     height: 4vh;
     margin: 0 5px;
-    font-size: 1rem;
+    font-size: 0.8em;
     line-height: 4vh;
     color: #000;
     background-color: #fff;

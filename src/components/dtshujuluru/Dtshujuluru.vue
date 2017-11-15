@@ -116,7 +116,7 @@
   .biaodanshuju {
     width: 85vw;
     margin: 0 auto;
-    font-size: 1rem;
+    font-size: 1em;
     background-color: #EFEEF4;
   }
   .biaodanshuju .lilist {
@@ -145,7 +145,7 @@
     width: 90%;
     height: 35px;
     margin-top: 1px;
-    font-size: 1rem;
+    font-size: 1em;
     text-indent: 1em;
     border: 0;
   }
@@ -156,11 +156,12 @@
   .wrapper .tijiao a {
     display: block;
     width: 50vw;
-    height: 40px;
+    max-width: 200px;
+    height: 6vh;
     margin: 0 auto;
-    font-size: 1.1rem;
+    font-size: 1.1em;
     font-weight: bold;
-    line-height: 40px;
+    line-height: 6vh;
     color: #fff;
     text-align: center;
     background-color: #79DC72;
@@ -176,14 +177,14 @@
     width: 70vw;
     height: 15vh;
     padding-top: 5vh;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     text-align: center;
     background-color: #fff;
     border: 1px solid #E4E3E9;
   }
   .tishi .icon-check_circle {
     margin-right: 10px;
-    font-size: 2rem;
+    font-size: 2em;
     color: #3AA112;
     vertical-align: middle;
   }
