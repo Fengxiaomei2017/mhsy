@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Bangdingshebei from '@/components/dtbangdingshebei/Dtbangdingshebei.vue'
+import Content from '@/components/dtcontent/Dtcontent.vue'
+import Shujuluru from '@/components/dtshujuluru/Dtshujuluru.vue'
+import Lishishuju from '@/components/dtlishishuju/Dtlishishuju.vue'
+import Shezhi from '@/components/dtshezhi/Dtshezhi.vue'
+import Fankui from '@/components/dtfankui/Dtfankui.vue'
 
 Vue.use(Router)
 
@@ -8,8 +13,34 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: HelloWorld
+      name: 'Bangdingshebei',
+      redirect: '/bangdingshebei'
+    },
+    {
+      path: '/bangdingshebei',
+      component: Bangdingshebei
+    },
+    {
+      path: '/content',
+      component: Content,
+      children: [
+        {
+          path: '/shujuluru',
+          component: Shujuluru
+        },
+        {
+          path: '/lishishuju',
+          component: Lishishuju
+        }
+      ]
+    },
+    {
+      path: '/shezhi',
+      component: Shezhi
+    },
+    {
+      path: '/fankui',
+      component: Fankui
     }
   ]
 })
