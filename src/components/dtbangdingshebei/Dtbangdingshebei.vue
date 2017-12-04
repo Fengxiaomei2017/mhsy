@@ -5,15 +5,40 @@
       <div class='shuru'>
         <label for='shebeihao'>设备编号：</label>
         <input type='text'
-                     id='shebeihao'
-                     placeholder='请输入设备编号' />
+               id='shebeihao'
+               v-model='shebeihao["shebeibianhao"]'
+               placeholder='请输入设备编号' />
       </div>
-      <button><router-link to='/shujuluru'>提交</router-link></button>
+      <button @click='tijiaoshebe'>提交</button>
+    </div>
+    <div id='tanchukuang' style='display: none;'>
+      <div class='mask'></div>
+      <div class='tishi'>
+        <i class='icon-check_circle'></i>
+        <span>设备号绑定成功！</span>
+        <small>即将跳转到数据录入页面</small>
+      </div>
     </div>
   </div>
 </template>
 <script>
-  export default{}
+  export default{
+    data () {
+      return {
+        shebeihao: {}
+      }
+    },
+    methods: {
+      tijiaoshebe: function () {
+        let tanchukuang = document.getElementById('tanchukuang')
+        tanchukuang.style.display = 'block'
+        console.log(this.shebeihao)
+        setTimeout(() => {
+          this.$router.push({path: '/shujuluru'})
+        }, 2000)
+      }
+    }
+  }
 </script>
 <style scoped>
   .bianhao {
@@ -59,14 +84,47 @@
     border-bottom: 1px solid #A1A0A0;
   }
   .bianhao button {
+    display: block;
     width: 60vw;
     max-width: 200px;
+    margin: 0 auto;
     font-size: 1.2em;
+    color: #fff;
     border: 1px solid #5FADFF;
     border-radius: 8px;
     background-color: #03A9F4;
   }
-  .bianhao button a {
-    color: #fff;
+  .tishi {
+    position: fixed;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, 0);
+    z-index: 999;
+    width: 70vw;
+    height: 15vh;
+    padding-top: 5vh;
+    font-size: 1.2em;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #E4E3E9;
+  }
+  .tishi .icon-check_circle {
+    margin-right: 10px;
+    font-size: 2em;
+    color: #3AA112;
+    vertical-align: middle;
+  }
+  .tishi small {
+    display: block;
+    margin-top: 1vh;
+  }
+  .mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(38,41,44, 0.4);
   }
 </style>

@@ -7,7 +7,8 @@
     <form action=''>
       <h3>请告诉我们解绑的原因，我们会努力持续改进</h3>
       <p class='xuanzefankui'
-         v-for='(item,index) in fuxuankuang'>
+         v-for='(item,index) in fuxuankuang'
+         :key='item'>
       <input type='checkbox'
              name='fankui'
              :value='item'

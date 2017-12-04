@@ -5,16 +5,20 @@
       <ul class='biaodanshuju'>
         <li class='lilist'
             v-for='item in biaoshuju'
-            >
-          <label :for='item.bianma'>{{item.biaoti}}</label><i></i>
+            :key='item.bianma'>
+          <label :for='item.bianma'>{{item.biaoti}}
+            <span class='must'
+                  v-if='item.must'>*</span>
+          </label><i></i>
           <input type='number'
                  :id='item.bianma'
+                 :class='{current: item.must}'
                  :placeholder='item.tishi'
                  v-model='biaodan[item.bianma]'>
                  </li>
       </ul>
     </div>
-    <div class='tijiao' @click='tijiao()'><a href='javascript:'>提交</a></div>
+    <div class='tijiao'><button @click='tijiao()'>提交</button></div>
     <div id='tanchukuang' style='display: none;'>
       <div class='mask'></div>
       <div class='tishi'>
@@ -32,41 +36,49 @@
         biaoshuju: [
           {
             'bianma': 'xieya',
+            'must': true,
             'biaoti': '血压',
             'tishi': '请输入血压'
           },
           {
             'bianma': 'xietang',
+            'must': true,
             'biaoti': '空腹血糖',
             'tishi': '请输入空腹血糖'
           },
           {
             'bianma': 'hxietang',
+            'must': false,
             'biaoti': '餐后2h血糖',
             'tishi': '请输入餐后2h血糖'
           },
           {
             'bianma': 'ganyousanzhi',
+            'must': false,
             'biaoti': '甘油三酯',
             'tishi': '请输入甘油三酯'
           },
           {
             'bianma': 'zhidanbai',
+            'must': false,
             'biaoti': '高密度脂蛋白',
             'tishi': '请输入高密度脂蛋白'
           },
           {
             'bianma': 'tizhong',
-            'biaoti': '体重',
+            'must': true,
+            'biaoti': '体重(公斤)',
             'tishi': '请输入体重'
           },
           {
             'bianma': 'shenggao',
-            'biaoti': '身高',
-            'tishi': '请输入身高'
+            'must': true,
+            'biaoti': '身高(米)',
+            'tishi': '例如：1.70'
           },
           {
             'bianma': 'xieniaosuan',
+            'must': false,
             'biaoti': '血尿酸',
             'tishi': '请输入血尿酸'
           }
@@ -78,12 +90,35 @@
     },
     methods: {
       tijiao: function () {
+        this.yanzheng()
+        let currentjs = document.getElementsByClassName('current')
+        // 当必填项的值全部不为空时进行路由跳转
+        for (let i = 0; i < currentjs.length; i++) {
+          if (!currentjs[i].value) {
+            return false
+          }
+        }
         let tanchukuang = document.getElementById('tanchukuang')
         tanchukuang.style.display = 'block'
-        console.log(this.biaodan)
         setTimeout(() => {
           this.$router.push({path: '/lishishuju'})
         }, 2000)
+      },
+      // 当必填项为空时，给予提示
+      yanzheng: function () {
+        let inputjs = document.getElementsByTagName('input')
+        let lijs = document.getElementsByTagName('li')
+        for (let i = 0; i < this.biaoshuju.length; i++) {
+          for (let j in this.biaoshuju[i]) {
+            if (this.biaoshuju[i][j] === true) {
+              if (!inputjs[i].value) {
+                lijs[i].style.borderColor = '#E60404'
+              } else {
+                lijs[i].style.borderColor = '#CACACA'
+              }
+            }
+          }
+        }
       },
       guanbi: function () {
         let tanchukuang = document.getElementById('tanchukuang')
@@ -134,6 +169,12 @@
     text-align: center;
     font-weight: bold;
   }
+  .biaodanshuju .lilist .must {
+    color: #E60404;
+    font-size: 1.3em;
+    font-weight: bold;
+    vertical-align: top;
+  }
   .biaodanshuju .lilist i {
     display: inline-block;
     height: 25px;
@@ -153,7 +194,7 @@
     margin: 2vh 0;
     padding: 2vh 0;
   }
-  .wrapper .tijiao a {
+  .wrapper .tijiao button {
     display: block;
     width: 50vw;
     max-width: 200px;

@@ -1,28 +1,37 @@
 <template>
   <div class='shezhi'>
-    <div class='shebeihao'><big>设备号：</big><span>Mhsl12345678</span></div>
+    <div class='shebeihao'><big>设备号：</big><span>{{shebeihao.shebeibianhao}}</span></div>
     <div class='jiechubangding'>
-      <a @click='jiebang'>解除绑定</a></div>
+      <button @click='jiebang'>解除绑定</button></div>
     <div id='tankuang' style='display: none;'>
       <div class='mask'></div>
       <div class='tishi'>
         <i class='icon-close'
-            @click='queding'></i>
+            @click='quxiao'></i>
         <h5>确定解除当前设备号？</h5>
-        <router-link to='/fankui'>确定</router-link>
-        <a href='javascript:' @click='queding'>取消</a>
+        <button @click='queding'>确定</button>
+        <button @click='quxiao'>取消</button>
       </div>
     </div>
   </div>
 </template>
 <script>
   export default {
+    data () {
+      return {
+        shebeihao: {'shebeibianhao': 'Mhsl12345678'}
+      }
+    },
     methods: {
       jiebang: function () {
         let tanchukuang = document.getElementById('tankuang')
         tanchukuang.style.display = 'block'
       },
       queding: function () {
+        console.log(this.shebeihao.shebeibianhao)
+        this.$router.push({path: '/fankui'})
+      },
+      quxiao: function () {
         let tanchukuang = document.getElementById('tankuang')
         tanchukuang.style.display = 'none'
       }
@@ -58,7 +67,7 @@
     font-size: 1.1em;
     text-align: center;
   }
-  .shezhi .jiechubangding a {
+  .shezhi .jiechubangding button {
     display: block;
     width: 40vw;
     height: 6vh;
@@ -92,7 +101,7 @@
     background-color: #fff;
     border: 1px solid #E4E3E9;
   }
-  .shezhi .tishi a {
+  .shezhi .tishi button {
     display: inline-block;
     width: 20vw;
     height: 4vh;

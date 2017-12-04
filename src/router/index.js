@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Tongyishu from '@/components/dttongyishu/Dttongyishu.vue'
 import Bangdingshebei from '@/components/dtbangdingshebei/Dtbangdingshebei.vue'
 import Content from '@/components/dtcontent/Dtcontent.vue'
 import Shujuluru from '@/components/dtshujuluru/Dtshujuluru.vue'
@@ -13,8 +14,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Bangdingshebei',
-      redirect: '/bangdingshebei'
+      name: 'default',
+      redirect: '/tongyishu'
+    },
+    {
+      path: '/tongyishu',
+      component: Tongyishu
     },
     {
       path: '/bangdingshebei',
